@@ -1,0 +1,81 @@
+
+
+<section
+  class="d-flex flex-wrap justify-content-between align-items-center gap-2 gap-lg-4 w-100 py-4"
+>
+  <div style="max-width: 600px;" class="input-group">
+	<fa-icon class="input-group-text" [icon]="faSch" />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Id, Addresse etc"
+      aria-label="Recherche?"
+      aria-describedby="basic-searchbar"
+	  (keyup)="filterList($event)"
+    />
+  </div>
+
+	<select style="max-width: 210px;"  [(ngModel)]="pageSize" class="border-none outline-none form-select w-lg-25">
+		<option value="5" checked> 5 / pages</option>
+		<option value="10">10 / pages</option>
+		<option value="20">20 / pages</option>
+		<option value="30">30 / pages</option>
+		<option value="40">40 / pages</option>
+	</select>
+</section>
+
+
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th class="sticky-column">#</th>
+			@for (item of headings; track $index) {
+				<th class="text-capitalize" [class]="$index < 1? 'sticky-column2': ''" (click)="sortEnteries(item)"> 
+					@if ( item === sortWhat ) {
+					  <fa-icon class="fa-xs mx-1" [icon]=" sortOrder ? faArwDown : faArwUp " /> 
+					}
+					{{ item }}
+				</th>
+			}
+            <th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (row of visibleData(); track $index ) {
+			<tr>
+				<td class="sticky-column">
+					{{ pageSize*(currentPage -1) + $index + 1}}
+				</td>
+				@for( cell of headings; track cell ) {
+					<td [class]="$index < 1? 'sticky-column2': ''">
+						@if (  ['online'].includes(cell) ) {
+							online 
+						} @else {
+							{{ row[cell] }}
+						}
+					</td>
+				}
+				<td> 
+					<app-tables-option-btn [options]="options" (action)="action($event,row)" />
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+</div>
+
+<section class="d-flex flex-md-wrap gap-2 text-sm justify-content-between">
+	<div class="overflow-hidden border rounded-2">
+		<button class="btn" (click)="prevPage()">&laquo;</button>
+		@for(item of numberOfPages(); track item ) {
+			<input [class]="item === currentPage ? 'btn-primary':''" class="btn" type="button" (click)="pageChange(item)" value="{{item}}">
+		}
+		<button class="btn" (click)="nextPage()" >&raquo;</button>
+	</div>
+
+	<p>
+		| vue {{ itemsSeen() }} sur {{ listSize }} {{ caption }}
+	</p>
+</section>

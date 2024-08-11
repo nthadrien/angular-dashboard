@@ -1,0 +1,10 @@
+<div ngbDropdown container="body">
+    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+    <div ngbDropdownMenu>
+        <button (click)="clickedOption($event)" ngbDropdownItem>Edit</button>
+        <button (click)="clickedOption($event)" ngbDropdownItem>Duplicate</button>
+        <button (click)="clickedOption($event)" ngbDropdownItem>Move</button>
+        <div class="dropdown-divider"></div>
+        <button (click)="clickedOption($event)" ngbDropdownItem>Delete</button>
+    </div>
+</div>

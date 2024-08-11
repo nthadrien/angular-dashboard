@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.16s ease;
+}
+
+body {
+  width: 100%;
+  max-height: 100vh;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer {
+  font-size: smaller;
+}
+
+.online , .status {
+  font-size: xx-smaller;
+  padding: 0.31em;
+  border-radius: 50%;
+}
+
+.status {
+    border-radius: 5%;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.glow {
+  display: inline-block;
+  font-size: 24px; /* Adjust as needed */
+  color: #fff; /* Text color */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  animation: glow 1.5s infinite;
+}
+
+
+/* boostrap modifications */
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  color: inherit;
+}
+
+button.accordion-button:focus{
+  box-shadow: inherit;
+}

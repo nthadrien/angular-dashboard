@@ -1,0 +1,58 @@
+<nav style="height: 60px;" class="navbar navbar-expand-md bg-body-tertiary px-2 sticky-top">
+	<div class="container-fluid">
+		
+		<button class="btn btn-sm fixed btn-outline-primary mx-2 d-md-none" (click)="setToggle()">
+			menu
+		</button>
+
+		<button
+			class="navbar-toggler"
+			type="button"
+			aria-controls="navbarContent"
+			[attr.aria-expanded]="!collapsed"
+			aria-label="Toggle navigation"
+			(click)="collapsed = !collapsed"
+		>
+			<span class="navbar-toggler-icon"> </span>
+		</button>
+
+		
+
+		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+
+			<app-theme-switcher />
+
+			<ul class="navbar-nav ms-auto gap-2 align-items-center">
+
+				<li class="nav-item" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> notification </a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+					</div>
+				</li>
+
+                <div class="input-group m-auto">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">icon</span>
+                </div>
+
+				<li class="nav-item" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Mr Rodrigue</a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Mon Compte</a>
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Mes Messages</a>
+						<hr/>
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">
+							<fa-icon [icon]="faLogout"></fa-icon>
+							Se déconnecter
+						</a>
+					</div>
+				</li>
+
+			</ul>
+
+		</div>
+	</div>
+</nav>

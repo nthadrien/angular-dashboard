@@ -1,0 +1,35 @@
+.arrow {
+  justify-self: end;
+  align-self: flex-end;
+  position: absolute;
+  right: 1px;
+}
+
+.turnIt {
+  transform: rotate(180deg);
+}
+
+a {
+  width: 100%;
+  border-radius: 6px;
+}
+
+a.active {
+  border: 1px solid #ddd;
+}
+
+.accordo:has(.turnIt) > div {
+  border-left: 3px solid rgb(168, 202, 232);
+}
+
+@media screen and (min-width: 768px) {
+  .arrow {
+    right: 4px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .arrow {
+    right: 12px;
+  }
+}

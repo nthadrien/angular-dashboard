@@ -1,0 +1,9 @@
+
+<nav>
+  @for (breadcrumb of breadcrumbs; track $index) {
+    <a class="text-capitalize" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a> 
+    @if( $index+1 < breadcrumbs.length ) {
+      <fa-icon [icon]="faArrw" class="fa-2xs mx-2" />
+    }
+  }
+</nav>

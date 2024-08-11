@@ -1,0 +1,38 @@
+<form [formGroup]="applyForm" (submit)="onSubmit()">
+  <div class="mb-3" >
+    <label for="user" class="form-label"
+      >Addresse Email ou nom d'utilisateur</label
+    >
+    <input
+      type="email"
+      class="form-control"
+      formControlName="user"
+      id="user"
+      placeholder="name@example.com"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Mot de Passe</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      id="password"
+      placeholder="******"
+    />
+  </div>
+
+  <p>
+    Lorem ipsum, dolor sitm amet consectetur adipisicing elit. Itaque animi
+    maiores totam consequatur numqua reiciendis saepe, nostrum repellat expedita
+    fugit nihil non provident unde sunt. Laboriosam magnam eius debitis porro.
+  </p>
+
+  <p class="alert alert-warning">
+    amet consectetur adipisicing elit. Itaque animi maiores totam consequatur
+    numqua
+  </p>
+
+  <button type="submit" class="btn btn-primary">Connexion</button>
+</form>

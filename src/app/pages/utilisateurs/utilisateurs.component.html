@@ -1,0 +1,25 @@
+<div class="d-flex flex-wrap justify-content-between">
+  <h2>Utilisateurs</h2>
+
+  <div class="btn-group">
+    <button class="btn">
+      PDF
+    </button>
+    <button class="btn">
+      CSV
+    </button>
+  </div>
+</div>
+
+<hr />
+
+@defer () {
+  <app-tables 
+  [list]="utilisateurs$" 
+  caption="{{title}}"
+  [headings]="headings"
+  />
+
+} @placeholder { 
+  <h5>Un instant svp ..... </h5>
+}

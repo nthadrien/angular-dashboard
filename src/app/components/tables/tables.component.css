@@ -1,0 +1,9 @@
+.sticky-column, .sticky-column2 {
+    position: sticky;
+    left: 0;
+    top: 0;
+}
+
+.sticky-column2 {
+    left: 1.5rem;
+}

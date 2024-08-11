@@ -1,0 +1,74 @@
+
+<div class="nav flex-column gap-2 align-items-start p-2">
+
+    <h4 style="height: 60px; text-overflow: ellipsis;">
+        Angular Dashboard
+    </h4>
+
+    <a 
+    routerLink="/tableau/resumer" 
+    routerLinkActive="active" 
+    ariaCurrentWhenActive="page"
+    class="nav-item d-flex gap-2 p-2"
+    >
+        <fa-icon class="fa-lg" [icon]="faHome"></fa-icon>
+        <span class="d-inline d-md-none d-lg-inline">Tableau De Bord</span>
+    </a>
+
+    <div class="accordo w-100 ">
+        <button 
+        class="btn d-flex gap-2 w-100 p-2 relative" 
+        type="button" 
+        (click)="showSubLinks('param')"
+        > 
+            <fa-icon class="fa-lg" [icon]="faSetting"></fa-icon>
+            <span class="d-inline d-md-none d-lg-inline">Paramètrages</span>
+            <fa-icon [ngClass]="{ 'turnIt': content === 'param' }" class="arrow absolute" [icon]="faArrw"></fa-icon>
+        </button>
+        @if( content === 'param') {
+            <div class="nav flex-column ps-lg-2">
+                <a routerLink="/tableau/parametrages/utilisateurs" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item d-flex gap-2 p-2">
+                    <fa-icon class="fa-lg" [icon]="faUsers"></fa-icon>
+                    <span class="d-inline d-md-none d-lg-inline">Utilisateurs</span>
+                </a>
+
+                <a  routerLink="/tableau/parametrages/operateurs" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item d-flex gap-2 p-2">
+                    <fa-icon class="fa-lg" [icon]="faOp"></fa-icon>
+                    <span class="d-inline d-md-none d-lg-inline">Opérateurs</span>
+                </a>
+
+                <a  routerLink="/tableau/parametrages/comptes" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item d-flex gap-2 p-2">
+                    <fa-icon class="fa-lg" [icon]="faUser"></fa-icon>
+                    <span class="d-inline d-md-none d-lg-inline">Comptes</span>
+                </a>
+
+            </div>
+        }
+    </div>
+
+    <a  routerLink="/tableau/evenements" routerLinkActive="active" ariaCurrentWhenActive="page"class="nav-item d-flex gap-2 p-2">
+        <fa-icon class="fa-lg" [icon]="faEvents"></fa-icon>
+        <span class="d-inline d-md-none d-lg-inline">Événements</span>
+    </a>
+
+    <a  
+    routerLink="/tableau/abonnements" 
+    routerLinkActive="active" 
+    ariaCurrentWhenActive="page" 
+    class="nav-item d-flex gap-2 p-2"
+    >
+        <fa-icon class="fa-lg" [icon]="faBook"></fa-icon>
+        <span class="d-inline d-md-none d-lg-inline">Abonnements</span>
+    </a>
+
+    <a  
+    routerLink="/tableau/historiques" 
+    routerLinkActive="active" 
+    ariaCurrentWhenActive="page"
+    class="nav-item d-flex gap-2 p-2"
+    >
+        <fa-icon class="fa-lg" [icon]="faEdit"></fa-icon>
+        <span class="d-inline d-md-none d-lg-inline">édition et historique</span>
+    </a>
+    
+</div>

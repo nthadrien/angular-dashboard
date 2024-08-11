@@ -1,0 +1,10 @@
+{
+    "users":[
+        { "id":1, "gender":"male", "name":"admin", "password":"admin","role": "admin"},
+        { "id":2, "gender":"female", "name":"client", "password":"client","role": "client"},
+        { "id":3, "gender":"male", "name":"client1", "password":"client","role": "client"},
+        { "id":4, "gender":"female", "name":"client2", "password":"client","role": "client"}
+    ],
+    "abonnements":[],
+    "evenements":[]
+}

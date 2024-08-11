@@ -1,0 +1,101 @@
+<section
+  class="flex-column justify-content-between shadow rounded-4 gap-2 p-2 p-md-5"
+>
+  <div class="d-flex gap-1 justify-content-between align-items-center">
+    <div>
+      <h3>Sales Summary</h3>
+      <p>Yearly Overview</p>
+    </div>
+
+    <select
+      style="max-width: 160px"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected>time interval</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+    </select>
+  </div>
+
+  <div class="row gap-1">
+    <div class="col-lg-5 d-flex flex-column justify-content-evenly py-lg-4">
+      <p>
+        <span class="h3 fw-3">1,344 XAF </span>
+        <br />
+        Current Year
+      </p>
+
+      <p>
+        <span class="h4 fw-3">1,344 XAF </span>
+        <br />
+        This Month
+      </p>
+
+      <button class="bg-primary text-white rounded-2 btn p-1">
+        More Details
+      </button>
+    </div>
+
+    <div class="col d-flex flex-column">
+      <app-charts chartType="bar" />
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col d-flex nowrap gap-2">
+      <img src="https://placehold.co/100" height="54px" alt="placeholder" />
+      <p>
+        Current Balance <br />
+        <span class="h4">300 XAF</span>
+      </p>
+    </div>
+
+    <div class="col d-flex nowrap gap-2">
+      <img src="https://placehold.co/100" height="54px" alt="placeholder" />
+      <p>
+        Number of Transactions <br />
+        <span class="h4">3</span>
+      </p>
+    </div>
+
+    <div class="col d-flex nowrap gap-2">
+      <img src="https://placehold.co/100" height="54px" alt="placeholder" />
+      <p>
+        Last Transaction <br />
+        <span class="h4">30,000 XAF</span>
+      </p>
+    </div>
+
+    <div class="col d-flex nowrap gap-2">
+      <img src="https://placehold.co/100" height="54px" alt="placeholder" />
+      <p>
+        Total Avg Number <br />
+        <span class="h4">300 XAF</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<h3>General Summary</h3>
+<hr />
+
+<section class="justify-content-between row p-2 rounded-2 shadow">
+  <div class="col row justify-content-evenly">
+    @for( item of summaryBoxes ; track item.title ) {
+    <app-summary-box class="col-5" />
+    }
+  </div>
+
+  <div class="col">
+    <app-charts chartType="pie" />
+  </div>
+</section>
+
+<section class="justify-content-between row p-2 rounded-2 shadow">
+  <h3>Recent Activities</h3>
+  <hr />
+  <app-big-tables />
+</section>

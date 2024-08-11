@@ -1,0 +1,42 @@
+
+.page {
+    display: flex;
+    gap: 0;
+    padding: 0;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+}
+
+.dashboard-content  {
+    overflow-y: auto !important;  
+    padding: 2rem;
+}
+
+.dashboard-sidebar {
+    display: none;
+    width: 0px;
+    position: sticky;
+    top: 60px;
+}
+
+@media  screen and (min-width: 576px) {
+    .dashboard-content  {
+        width: calc(100% - 64px);
+    }
+    
+    .dashboard-sidebar {
+        width: 64px;
+        display: inline-block;
+    }
+}
+
+@media  screen and (min-width: 768px) {
+
+    .dashboard-content  {
+        width: 80%;
+    }
+    
+    .dashboard-sidebar {
+        width: 20%;
+    }
+}

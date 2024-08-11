@@ -1,0 +1,28 @@
+<div class="d-flex flex-wrap justify-content-between p-2">
+
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item">
+      <button (click)="startPage()" class="page-link btn">
+        &laquo;
+      </button>
+    </li>
+    @for (item of numberOfPages(); track item) {
+      <li class="page-item">
+        <button (click)="pageNumber(item)" class="page-link btn-link border-none">
+          {{ item }}
+        </button>
+      </li>
+    }
+    <li>
+      <button (click)="endPage()" class="page-link btn">
+        &raquo;
+      </button>
+    </li>
+  </ul>
+</nav>
+
+
+<p>| vue {{ pageSize }}  sur {{listSize}} </p>
+	
+</div>

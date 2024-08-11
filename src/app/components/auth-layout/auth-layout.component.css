@@ -1,0 +1,54 @@
+
+
+.side {
+    background: rgba(0, 0, 0, 0.42) url('https://picsum.photos/id/2/900/500') no-repeat center;
+    background-size: cover;
+    background-blend-mode: color;
+    animation-name: name;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 100%);
+    overflow-x: hidden;
+}
+
+.hide {
+    position: absolute;
+    top: 25%;
+    animation-name: text;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.ver2 {
+    animation-direction: reverse;
+    animation-fill-mode: backwards;
+}
+
+@keyframes name {
+    25% {
+        content: 'Secure dashboard';
+        background: url('https://picsum.photos/id/1/900/500');
+        background-size: cover;
+        background-blend-mode: color;
+    }
+    50% {
+        background: url('https://picsum.photos/id/4/900/500');
+        background-size: cover;
+        background-blend-mode: color;
+    }
+}
+
+
+@keyframes text {
+    0% , 50% , 75% {
+        display: none;
+    }
+    100%, 25% {
+        display: block;
+    }
+}

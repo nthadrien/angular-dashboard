@@ -1,0 +1,24 @@
+
+  
+  <main style="min-height: 100vh;"  class="container d-flex flex-column flex-md-row justify-content-around flex-column-reverse">
+
+    <div style="max-width: 650px;" class="h-100 p-4 d-flex flex-column justify-content-center align-items-start">
+      <h1>Logo</h1>
+      <h2>Company Name</h2>
+      <router-outlet> </router-outlet>
+
+      <app-footer />
+    </div>
+  
+    <div style="width: clamp(100%, 30%, 40%);" class="text-white d-flex flex-column justify-content-between p-4 side">
+      <app-theme-switcher />
+      
+      <div class="hide">
+        text like Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit voluptatum quasi aspernatur, ea ducimus iure rerum, mollitia iusto sint labore voluptate itaque quaerat nobis! Eaque, sequi? Nam animi saepe corrupti.
+      </div>
+
+      <div class="hide ver2">
+        second like Lorem, ipsum dolor sit amet consectetur adipisicing elit. A dicta optio tenetur, quae non nihil iure vero cumque, omnis libero suscipit debitis. Dicta commodi nihil eius deserunt, ipsum voluptas vel?
+      </div>
+    </div>
+  </main>

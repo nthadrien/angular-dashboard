@@ -1,0 +1,35 @@
+
+
+<div class="container-fluid pages d-flex justify-content-start align-items-start gap-0 p-0" >
+  <!-- sidebar starts here -->
+
+  <div class="bg-body-tertiary overflow-x-hidden dashboard-sidebar">
+    <ng-template #content let-offcanvas>
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title" id="offcanvas-basic-title">
+          Profile update
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="offcanvas.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="offcanvas-body overflow-x-hidden">
+        <app-sidebarcontent />
+      </div>
+    </ng-template>
+    <app-sidebarcontent />
+  </div>
+
+  <!-- main content starts here -->
+  <main class="dashboard-content ">
+    <app-navbar (toggleSidebar)="open(content)" />
+    <section class="d-flex flex-column justify-content-between gap-2 gap-lg-4 p-2 p-lg-4">
+      <app-breadcrumb />
+      <router-outlet />
+    </section>
+    <app-footer />
+  </main>
+</div>
