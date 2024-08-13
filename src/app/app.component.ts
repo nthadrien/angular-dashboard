@@ -1,53 +1,25 @@
-import { Component, TemplateRef, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {
-  NgbOffcanvas,
-  OffcanvasDismissReasons,
-} from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { ToasterComponent } from './components/toaster/toaster.component';
+import { ToastService } from './components/toaster/toaster.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    FontAwesomeModule
-],
+  imports: [ RouterOutlet, ToasterComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  faCoffee = faCoffee;
+export class AppComponent implements AfterViewInit {
 
+  toastService =  inject(ToastService)
 
-  private offcanvasService = inject(NgbOffcanvas);
-  closeResult = '';
+  constructor (
+    // private toastService : ToastService
+  ) {}
 
-  open(content: TemplateRef<any>) {
-    this.offcanvasService
-      .open(content, { ariaLabelledBy: 'offcanvas-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
+  ngAfterViewInit() {
+
   }
 
-  private getDismissReason(reason: any): string {
-    switch (reason) {
-      case OffcanvasDismissReasons.ESC:
-        return 'by pressing ESC';
-      case OffcanvasDismissReasons.BACKDROP_CLICK:
-        return 'by clicking on the backdrop';
-      default:
-        return `with: ${reason}`;
-    }
-  }
-
-  constructor() {}
 }

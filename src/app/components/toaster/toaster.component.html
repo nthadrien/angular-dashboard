@@ -1,0 +1,27 @@
+<div class="fixed-top d-flex flex-column gap-1">
+  <!-- <ngb-toast
+    [autohide]="true"
+    header="weldone"
+    (mouseenter)="false"
+    [delay]="8000"
+    (hidden)="closeToast()"
+  >
+    I am a simple static toast.
+  </ngb-toast>
+
+  <ngb-toast [autohide]="true"> I am a simple static toast. </ngb-toast> -->
+
+  @for( item of toastService.toasts; track item.id ) {
+    <ngb-toast 
+    [autohide]="true"
+    [delay]="8000"
+    (hidden)="closeToast($event)"
+    [ngClass]="item.type === 'info' ? 'bg-info': item.type === 'success' ? 'bg-success' : 'bg-danger'"
+    class="text-white"
+    > 
+    <fa-icon [icon]="correctIcon(item.type)" />
+    {{ item.message }} 
+  </ngb-toast>
+  }
+    
+</div>
