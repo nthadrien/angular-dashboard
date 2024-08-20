@@ -1,9 +1,17 @@
 
-<nav>
-  @for (breadcrumb of breadcrumbs; track $index) {
-    <a class="text-capitalize" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a> 
-    @if( $index+1 < breadcrumbs.length ) {
-      <fa-icon [icon]="faArrw" class="fa-2xs mx-2" />
+<nav class="d-flex justify-content-between align-items-center bg-body shadow-sm p-3 p-md-4 rounded">
+
+  <h3 class="text-capitalize">
+    {{ breadcrumbs[breadcrumbs.length - 1].label }}
+  </h3>
+
+  <div>
+    <span class="me-2">|</span>
+    @for (breadcrumb of breadcrumbs; track $index) {
+      <a class="text-capitalize" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a> 
+      @if( $index+1 < breadcrumbs.length ) {
+        <fa-icon [icon]="faArrw" class="fa-xs mx-2" />
+      }
     }
-  }
+  </div>
 </nav>

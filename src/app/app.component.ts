@@ -18,8 +18,6 @@ export class AppComponent implements AfterViewInit {
     // private toastService : ToastService
   ) {}
 
-  ngAfterViewInit() {
-
-  }
+  ngAfterViewInit() {}
 
 }

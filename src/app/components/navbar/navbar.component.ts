@@ -1,19 +1,22 @@
 import { Component, output  } from '@angular/core';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbTooltip, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faDoorOpen, faIdBadge, faPersonRifle, faPersonRunning, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgbDropdownModule, ThemeSwitcherComponent, FontAwesomeModule ],
+  imports: [NgbDropdownModule, ThemeSwitcherComponent, FontAwesomeModule, NgbTooltipModule ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 
-  faLogout = faDoorOpen;
+  faProfil = faIdBadge;
+  faLogout = faPersonRunning;
+  faSearch = faSearch ;
+  faNotify = faBell;
   
   toggleSidebar = output();
   collapsed = true;

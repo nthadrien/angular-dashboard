@@ -1,1 +1,63 @@
-<p>evenements works!</p>
+<!-- <app-calendar /> -->
+
+<div class="container-fluid">
+
+  <div class="row justify-content-start gap-4">
+
+    <div
+      class="col-sm-12 order-2 order-lg-1 col-lg-8 bg-body shadow-lg"
+    >
+      <app-calendar />
+    </div>
+
+    <div class="col-sm-12 order-1 order-lg-2 col-lg-3 bg-body shadow-lg my-5 rounded-4">
+      <form class="form p-2">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        
+        
+        <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+        />
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Example textarea</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">
+            Ajouter
+          </button>
+      </form>
+
+      <hr>
+
+      <button (click)="toggleVoirPlus()" class="btn btn-primary">
+        l'historique d'aujourdhui
+      </button>
+
+      @if( voirPlus ) {
+      <app-small-tables />
+      }
+    </div>
+  </div>
+</div>

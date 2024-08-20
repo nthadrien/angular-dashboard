@@ -95,11 +95,12 @@ export const routes: Routes = [
       },
       {
         path: 'evenements',
+        title:'evenements',
         component: EvenementsComponent,
         data: {
           breadcrumb: 'evenements'
         }
-      },
+      }
     ],
   },
   {
@@ -107,8 +108,6 @@ export const routes: Routes = [
     component: ErreursComponent,
   },
 ];
-
-
 
 // document title strategy to implement Dashboard before the title:
 @Injectable({ providedIn: 'root' })

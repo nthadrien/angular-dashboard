@@ -11,18 +11,18 @@ export interface ToastInterface {
   providedIn: 'root',
 })
 export class ToastService {
-  toasts: ToastInterface[] = [
-    {
-      id: 1,
-      message: 'This not',
-      type: 'info',
-    },
-    {
-      id: 2,
-      message: 'This an eror',
-      type: 'error',
-    },
-  ];
+  toasts: ToastInterface[] = [];
+  //   {
+  //     id: 1,
+  //     message: 'This not',
+  //     type: 'info',
+  //   },
+  //   {
+  //     id: 2,
+  //     message: 'This an eror',
+  //     type: 'error',
+  //   },
+  // ];
 
   getToasts() {
     return this.toasts;

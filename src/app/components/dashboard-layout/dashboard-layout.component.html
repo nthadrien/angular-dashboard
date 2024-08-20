@@ -3,7 +3,7 @@
 <div class="container-fluid pages d-flex justify-content-start align-items-start gap-0 p-0" >
   <!-- sidebar starts here -->
 
-  <div class="bg-body-tertiary overflow-x-hidden dashboard-sidebar">
+  <div class="overflow-x-hidden dashboard-sidebar shadow-sm">
     <ng-template #content let-offcanvas>
       <div class="offcanvas-header">
         <h4 class="offcanvas-title" id="offcanvas-basic-title">
@@ -24,7 +24,7 @@
   </div>
 
   <!-- main content starts here -->
-  <main class="dashboard-content ">
+  <main class="dashboard-content bg-body-tertiary">
     <app-navbar (toggleSidebar)="open(content)" />
     <section class="d-flex flex-column justify-content-between gap-2 gap-lg-4 p-2 p-lg-4">
       <app-breadcrumb />

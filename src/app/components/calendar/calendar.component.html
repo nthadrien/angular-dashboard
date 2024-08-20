@@ -1,0 +1,64 @@
+
+<header class="nav text-capitalize justify-content-between bg-info text-white align-items-center ">
+
+    <button class="btn nav-item fs-1 text-white" (click)="prevMonth()" > &laquo; </button>
+
+    <h3>
+        <span class="nav-brand">📅</span>
+        {{ normalMonths[currentMonth()] }} {{ currentYear() }}
+    </h3>
+        
+    <button class="btn nav-item fs-1 text-white" (click)="nextMonth()" > &raquo; </button>
+</header>
+
+<div>
+    <table class="table border-collapse mine">
+
+        <thead>
+            <tr class="bg-body-teitary ">
+            @for ( day of normalDays; track $index  ) {
+                <th class="text-center text-capitalize">{{day}}</th>
+            }
+            </tr>
+        </thead>
+
+        <tbody>
+            @for ( day of daysInMonth() ; track $index  ) {
+                @if( $index % 7 === 0  ) {
+                    <tr> 
+                }
+                <td [class]="today().getDate() === day ? 'day' : '' " 
+                (click)="changeDay($index)" 
+                class="calendar-cell border relative"> 
+                    <span class="absolute start-2 end-2 text-muted">{{ day }}</span>
+                </td>
+            }
+        </tbody>
+    </table>
+</div>
+
+<h4 class="text-capitalize my-4">
+    Aujourd'hui: {{ normalDays[today().getDay()] }}, 
+    {{ today().getDay()}} 
+    {{ normalMonths[currentMonth()] }} 
+</h4>
+
+<div class="border-l-2">
+    
+</div>
+
+<h5>Les événements de cette semaine  ({{thisWeekEvents().length}}) </h5>
+@for (item of thisWeekEvents(); track $index) {
+
+    <div class="d-flex gap-4 border border-info my-3 p-2">
+       <div class="d-flex flex-column">
+        <p>{{ item.startDay }}</p>
+        <p> {{item.endDay }}</p>
+       </div>
+
+       <div>
+        <p>{{ item.description }}</p>
+        <small>{{ item.place }}</small>
+       </div>
+    </div>
+}

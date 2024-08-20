@@ -1,10 +1,7 @@
-<nav style="height: 60px;" class="navbar navbar-expand-md bg-body-tertiary px-2 sticky-top">
-	<div class="container-fluid">
-		
-		<button class="btn btn-sm fixed btn-outline-primary mx-2 d-md-none" (click)="setToggle()">
-			menu
-		</button>
 
+
+<nav style="height:60px;" class="shadow-sm navbar navbar-expand-md sticky-top bg-body">
+	<div class="container-fluid">
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -13,46 +10,75 @@
 			aria-label="Toggle navigation"
 			(click)="collapsed = !collapsed"
 		>
-			<span class="navbar-toggler-icon"> </span>
+			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		
+		<div class="navbar-collapse px-lg-2 px-1 bg-body" [class.collapse]="collapsed" id="navbarContent">
 
-		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+			<form style="--bs-border-opacity:.5;" class="form-inline border border-light-subtle rounded">
+				<div class="input-group input-group-sm pl-1">
+					<button class="btn" type="submit">
+						<fa-icon [icon]="faSearch" />
+					</button>
+					<input class="form-control" class="border-0" type="text" placeholder="Search" aria-label="Search">
+				</div>
+			</form>
 
-			<app-theme-switcher />
 
-			<ul class="navbar-nav ms-auto gap-2 align-items-center">
+			<ul class="navbar-nav ms-auto">
 
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> notification </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+				<li class="nav-item mx-lg-2">
+					<app-theme-switcher />
+				</li>
+					
+
+				<li class="nav-item position-relative mx-lg-2" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button" 
+					[openDelay]="1000"
+					[closeDelay]="200" 
+					placement="bottom" 
+					ngbTooltip="Messages & notification"> 
+						<fa-icon class="fa-md fa-md-xl" [icon]="faNotify" />
+					</a>
+					<div style="min-width: 280px;" ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+
+						<a ngbDropdownItem href="#" class="d-flex align-items-center gap-2 p-2" aria-current="true">
+							<img height="42" width="42" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSimEtPETyjcf7d6lLiYWlycjTLSIobmoobPA&usqp=CAU" alt="" srcset="" class="bg-body-tertiary rounded-circle">
+							<div class="w-100 lh-sm">
+							  <p class="text-primary m-0 fw-semibold">List group item heading</p>
+							  <small style="font-size:small;">Some placeholder content in a paragraph below the heading and date.</small>
+							</div>
+						</a>
+
+						<hr class="w-25 mx-auto">
+
+						<small>
+							<a ngbDropdownItem href="#" (click)="$event.preventDefault()">More Here...</a>
+						</small>
 					</div>
 				</li>
 
-                <div class="input-group m-auto">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">icon</span>
-                </div>
+				<li class="nav-item mx-2 mx-lg-4" ngbDropdown>
 
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Mr Rodrigue</a>
+					<a class="nav-link" tabindex="0" class="d-flex align-items-center gap-1 gap-xl-2"  ngbDropdownToggle id="navbarDropdown2" role="button"> 
+						<img height="40" class="rounded-pill border-seconday border-4" width="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSimEtPETyjcf7d6lLiYWlycjTLSIobmoobPA&usqp=CAU" alt="" srcset="" class="bg-body-tertiary border-seconday rounded-circle">
+						<small class="lh-tight">
+							<span class="text-primary fw-semibold">Mr Eric Gongang</span> <br/>
+							 <span class="fw-6">funny.emailbox.man</span>
+						</small>
+					</a>
+
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Mon Compte</a>
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Mes Messages</a>
-						<hr/>
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">
-							<fa-icon [icon]="faLogout"></fa-icon>
-							Se déconnecter
+							<fa-icon class="mx-2" [icon]="faProfil" /> Mon Profil
+						</a>
+						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">
+							<fa-icon class="mx-2" [icon]="faLogout" /> Deconnexion
 						</a>
 					</div>
 				</li>
-
 			</ul>
-
 		</div>
+
 	</div>
 </nav>
