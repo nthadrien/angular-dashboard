@@ -1,54 +1,79 @@
 
-<header class="nav text-capitalize justify-content-between bg-info text-white align-items-center ">
 
-    <button class="btn nav-item fs-1 text-white" (click)="prevMonth()" > &laquo; </button>
 
-    <h3>
-        <span class="nav-brand">📅</span>
-        {{ normalMonths[currentMonth()] }} {{ currentYear() }}
-    </h3>
-        
-    <button class="btn nav-item fs-1 text-white" (click)="nextMonth()" > &raquo; </button>
-</header>
+<section class="row p-2">
+    <div class=" col col-lg-4">
 
-<div>
-    <table class="table border-collapse mine">
+        <header class="nav text-capitalize justify-content-between bg-info text-white align-items-center ">
+            <button class="btn nav-item fs-1 text-white" (click)="prevMonth()" > &laquo; </button>
+            <h3>
+                <span class="nav-brand">📅</span>
+                {{ normalMonths[currentMonth()] }} {{ currentYear() }}
+            </h3>
+            <button class="btn nav-item fs-1 text-white" (click)="nextMonth()" > &raquo; </button>
+        </header>
 
-        <thead>
-            <tr class="bg-body-teitary ">
-            @for ( day of normalDays; track $index  ) {
-                <th class="text-center text-capitalize">{{day}}</th>
-            }
-            </tr>
-        </thead>
+        <table class="mine table border-collapse">
 
-        <tbody>
-            @for ( day of daysInMonth() ; track $index  ) {
-                @if( $index % 7 === 0  ) {
-                    <tr> 
+            <thead>
+                <tr class="bg-body-info bg-light border">
+                @for ( day of normalDays; track $index  ) {
+                    <th style="height: 72px;" class="text-center text-capitalize">{{day}}</th>
                 }
-                <td [class]="today().getDate() === day ? 'day' : '' " 
-                (click)="changeDay($index)" 
-                class="calendar-cell border relative"> 
-                    <span class="absolute start-2 end-2 text-muted">{{ day }}</span>
-                </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for ( day of daysInMonth() ; track $index  ) {
+                    @if( $index % 7 === 0  ) {
+                        <tr> 
+                    }
+                    <td [class]="day === today().getDate() ? 'bg-info text-white' : '' " (click)="changeDay(day)" class="calendar-cell border relative"> 
+                        {{ day !== 0 ? day : '' }}
+                    </td>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col border p-4">
+        <h4 class="text-capitalize my-4">
+            Aujourd'hui: {{ normalDays[today().getDay()] }}, 
+            {{ today().getDay()}} 
+            {{ normalMonths[currentMonth()] }} 
+        </h4>
+
+        <ul>
+            @for( event of thisMonth().dayEvents ; track $index ) { 
+                <li>
+                    {{ event.startDay }} {{ event.description }}
+                    <p>{{event.place}}</p>
+                </li>
             }
-        </tbody>
-    </table>
-</div>
+        </ul>
+
+    </div>
+
+</section>
+
+
 
 <h4 class="text-capitalize my-4">
-    Aujourd'hui: {{ normalDays[today().getDay()] }}, 
-    {{ today().getDay()}} 
-    {{ normalMonths[currentMonth()] }} 
+    Ce mois {{ normalDays[today().getMonth()] }} :
 </h4>
 
-<div class="border-l-2">
-    
-</div>
+<ul class="border-l-2">
+    @for( event of thisMonth().monthEvents ; track $index ) { 
+        
+        <li>
+            {{ event.startDay }} {{ event.description }}
+            <p>{{event.place}}</p>
+        </li>
+    }
+</ul>
 
-<h5>Les événements de cette semaine  ({{thisWeekEvents().length}}) </h5>
-@for (item of thisWeekEvents(); track $index) {
+<!-- <h5>Les événements de ce Mois  ({{thisWeekEvents().length}}) </h5> -->
+<!-- @for (item of thisWeekEvents(); track $index) {
 
     <div class="d-flex gap-4 border border-info my-3 p-2">
        <div class="d-flex flex-column">
@@ -61,4 +86,4 @@
         <small>{{ item.place }}</small>
        </div>
     </div>
-}
+} -->

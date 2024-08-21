@@ -5,15 +5,16 @@ header {
 
 .mine {
     width: 100%;
-    min-height: calc(80px * 8);
+    min-height: calc(50px * 8);
+    width: 100%;
 }
 
-.mine td, .mine th {
-    min-height: 80px;
-    min-width: 80px;
+.calendar-cell {
+    vertical-align: middle;
+    text-align: center;
 }
 
-.calendar-cell:hover, .day {
-    background-color: #ffc0cb54;
+td.calendar-cell:hover {
     cursor: pointer;
+    border-color: orange;
 }
