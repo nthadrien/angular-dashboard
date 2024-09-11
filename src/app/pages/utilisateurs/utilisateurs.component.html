@@ -1,20 +1,24 @@
-<main class="bg-body shadow-md p-2 p-lg-6" >
+<main class="bg-body shadow-md shadow-sm py-4 px-2 p-md-3 p-lg-6 rounded" >
   
 
-<div class="d-flex flex-wrap justify-content-between">
-  <h2>Utilisateurs</h2>
+<div class="d-flex flex-wrap justify-content-between mb-4">
+
+  <h3>Liste d'Utilisateurs</h3>
 
   <div class="btn-group">
+
     <button class="btn">
+      <fa-icon class="fa-md fa-md-xl" [icon]="faPDF" />
       PDF
-    </button>
+    </button> 
     <button class="btn">
+      <fa-icon class="fa-md fa-md-xl" [icon]="faCSV" />
       CSV
     </button>
+
   </div>
 </div>
 
-<hr />
 
 @defer () {
   <app-tables 

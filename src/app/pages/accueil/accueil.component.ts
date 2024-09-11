@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SummaryBoxComponent } from '../../components/summary-box/summary-box.component';
 import { SmallTablesComponent } from '../../components/small-tables/small-tables.component';
-import { BigTablesComponent } from '../../components/big-tables/big-tables.component';
 import { ChartsComponent } from '../../components/charts/charts.component';
 
 @Component({
@@ -10,7 +9,6 @@ import { ChartsComponent } from '../../components/charts/charts.component';
   imports: [
     SummaryBoxComponent,
     SmallTablesComponent,
-    BigTablesComponent,
     ChartsComponent,
   ],
   templateUrl: './accueil.component.html',

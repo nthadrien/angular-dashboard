@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronUp, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,7 @@ interface ActionInterface {
   templateUrl: './tables.component.html',
   styleUrl: './tables.component.css',
 })
-export class TablesComponent {
+export class TablesComponent implements OnChanges {
   @Input({ required: true }) caption: string = 'inconnue';
   @Input() list:any[] = [];
   @Input({ required: true  }) headings: string[] = [];
