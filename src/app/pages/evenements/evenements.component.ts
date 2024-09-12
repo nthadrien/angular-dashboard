@@ -2,20 +2,27 @@ import { Component } from '@angular/core';
 import { CalendarComponent } from '../../components/calendar/calendar.component';
 import { SmallTablesComponent } from "../../components/small-tables/small-tables.component";
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-evenements',
   standalone: true,
-  imports: [CalendarComponent, SmallTablesComponent, FormsModule],
+  imports: [CalendarComponent, SmallTablesComponent, FormsModule, FontAwesomeModule ],
   templateUrl: './evenements.component.html',
   styleUrl: './evenements.component.css'
 })
 export class EvenementsComponent {
 
-  voirPlus:boolean = false;
+  faWarn = faWarning;
+
+  now = new Date();
+  addEvent = false;
+  error = "";
 
 
-  toggleVoirPlus  () {
-    this.voirPlus = !this.voirPlus;
+  toggleAddEvent() {
+    this.addEvent = !this.addEvent; 
+    console.warn(this.addEvent);
   }
 }

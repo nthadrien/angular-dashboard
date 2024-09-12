@@ -1,4 +1,6 @@
-import { Component, computed, signal, Signal, ViewChildren, ElementRef, afterRender } from '@angular/core';
+import { Component, computed, signal, Signal, ViewChildren, ElementRef, afterRender, Output, EventEmitter } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCalendarDay, faCalendarDays, faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
 
 interface His {
   startDay : string;
@@ -12,26 +14,23 @@ interface ScheduleDto {start:number; endIn:number}
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports:[
-  ],
+  imports:[FontAwesomeModule],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
 
 
-  constructor(
-    cellsRef : ElementRef 
-  ) {
-    afterRender (()=>{
-      const cells = cellsRef.nativeElement.querySelectorAll(".calendar-cell");
-      this.thisMonth().schedule.forEach( (itm : ScheduleDto ) => {
-        cells[itm.start].style.backgound = 'blue';
-      });
-    })
-   }
+  faDays = faCalendarDays;
+  faDay = faCalendarDay;
+  faWeek = faCalendarWeek;
 
-  
+
+  // @Input() meetings = [] meeting input from services later on
+  @Output() addEvent = new EventEmitter();
+
+  constructor() {}
+
   meetings: His[] = [
     {
       startDay : "8/19/2024",
@@ -95,7 +94,7 @@ export class CalendarComponent {
   
   daysInMonth = computed( () => {
     let currentMonth = new Date(this.currentYear(), this.currentMonth()+1, 0 ).getDate();
-    let previousMonth = new Date(this.currentYear(), this.currentMonth(), 0 ).getDate();
+    // let previousMonth = new Date(this.currentYear(), this.currentMonth(), 0 ).getDate();
     return Array.from({ length: 35 }, ( x , index) =>index < this.firstDay() ? 0
       // previousMonth - this.firstDay() + index + 1 
       : currentMonth + this.firstDay() > index ? (index  - this.firstDay() ) % currentMonth + 1
@@ -126,9 +125,9 @@ export class CalendarComponent {
   }
 
   changeDay ($event: number ) {
-    this.today.set(
-      new Date(this.currentYear(), this.currentMonth(), $event )
-    );
+    const vv = new Date(this.currentYear(), this.currentMonth(), $event );
+    this.today.set(vv);
+    console.log('changed to:' , this.today());
   }
 
   thisMonth: Signal<any> = computed( () => {
@@ -176,8 +175,7 @@ export class CalendarComponent {
     return Math.abs( day - this.today().getDate() ) < 1 ;
   }
 
-  checkDailyEvents (  ) {
-    const b = '';
+  newEvent () {
+    this.addEvent.emit();
   }
-
 }

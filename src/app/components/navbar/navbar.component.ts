@@ -2,7 +2,7 @@ import { Component, output  } from '@angular/core';
 import { NgbDropdownModule, NgbTooltip, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBell, faDoorOpen, faIdBadge, faPersonRifle, faPersonRunning, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faIdBadge, faPersonRunning, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',

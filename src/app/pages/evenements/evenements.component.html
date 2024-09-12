@@ -1,63 +1,60 @@
 <!-- <app-calendar /> -->
 
-<div class="container-fluid">
+<app-calendar (addEvent)="toggleAddEvent()" />
 
-  <div class="row justify-content-start gap-4">
 
-    <div
-      class="col-sm-12 order-2 order-lg-1 col-lg-8 bg-body shadow-lg"
-    >
-      <app-calendar />
+<!-- Modal -->
+@if( addEvent ) {<section class="my-modal">
+  
+  <form class="container rounded-2 p-3 p-md-4 bg-body">
+
+    <h4>Ajouter un Evenement</h4>
+
+    <section class="row">
+
+      <div class="mb-3 col">
+        <label for="jour" class="form-label">Commence Quand</label>
+        <input type="datetime-local" class="form-control" id="jour" defaultValue={{now}} aria-describedby="date" required />
+      </div>
+  
+      <div class="mb-3 col">
+        <label for="jour" class="form-label">Finit Quand</label>
+        <input type="datetime-local" class="form-control" id="jour" defaultValue={{now}} aria-describedby="date" required />
+      </div>
+
+    </section>
+
+    <div class="mb-3">
+      <label for="place" class="form-label">Emplacement</label>
+      <input type="text" class="form-control" id="emplacement" aria-describedby="date" required />
     </div>
 
-    <div class="col-sm-12 order-1 order-lg-2 col-lg-3 bg-body shadow-lg my-5 rounded-4">
-      <form class="form p-2">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-          />
-        </div>
-        
-        
-        <input
-            type="email"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-        />
-
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              >Example textarea</label
-            >
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            ></textarea>
-          </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description Breve</label>
+      <textarea class="form-control" id="description" rows="3" required></textarea>
+    </div>
 
 
-          <button type="submit" class="btn btn-primary">
-            Ajouter
-          </button>
-      </form>
+    @if( error.length > 3 ) {
+    <div class="alert alert-danger d-flex align-items-start" role="alert">
+      <fa-icon class="me-2" [icon]="faWarn" />
+      <p>{{error}}</p>
+    </div>
+    }
 
-      <hr>
+    <div class="d-flex justify-content-between align-items-center">
 
-      <button (click)="toggleVoirPlus()" class="btn btn-primary">
-        l'historique d'aujourdhui
+      <button type="submit" class="btn btn-primary"> 
+        + Ajouter 
       </button>
 
-      @if( voirPlus ) {
-      <app-small-tables />
-      }
+      <p (click)="toggleAddEvent()" type="reset" class="btn btn-danger">
+         X Annuler 
+      </p>
+
     </div>
-  </div>
-</div>
+
+  </form>
+
+</section>
+}
